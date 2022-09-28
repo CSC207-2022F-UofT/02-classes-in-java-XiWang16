@@ -80,6 +80,18 @@ public class Silly implements Comparable<Silly>{
      *       Make sure you document this method!
      */
 
+    /**
+     * Creates a new Silly object.
+     * This constructor takes in a two String as arguments.
+     * @param string1 the first name of this Silly instance.
+     * @param string2 the last name of this Silly instance.
+     */
+    public Silly(String string1, String string2) {
+
+        StringBuilder first = new StringBuilder(string1);
+        this.name = String.valueOf(first.append(string2));
+    }
+
 
 
 
@@ -116,7 +128,7 @@ public class Silly implements Comparable<Silly>{
         y.countStatic();
         x.countStatic();
         x.countStatic();
-        int[] expected_values = {};
+        int[] expected_values = {1, 1, 2, 3};
 
         System.out.println("The countStatic calls will return " + Arrays.toString(expected_values));
     }
@@ -134,6 +146,7 @@ public class Silly implements Comparable<Silly>{
     @Override
     public String toString(){
         // TODO (Task 3): Implement the body of this method!
+    return this.name;
     }
 
     /**
@@ -161,6 +174,7 @@ public class Silly implements Comparable<Silly>{
 
         // Hint: to compare strings, we need to use .equals()
         //       e.g. s1.equals(s2)
+        return this.name.equals(other.name);
     }
 
     /**
@@ -194,6 +208,15 @@ public class Silly implements Comparable<Silly>{
          *                You can get the length of a string by using the
          *                .length() method.
          */
+
+        /**
+         * Returns a negative integer, zero, or a positive integer as the name of this
+         * Silly object is less than, equal to, or greater than that of the Silly object other.
+         */
+        int own = this.name.length();
+        int to_compare = other.name.length();
+        return own - to_compare;
+        }
     }
 
     /*
@@ -205,5 +228,5 @@ public class Silly implements Comparable<Silly>{
      *                If the tests don't pass, look at the results and revise
      *                accordingly.
      */
-}
+
 
